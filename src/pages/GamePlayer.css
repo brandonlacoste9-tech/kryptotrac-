@@ -1,0 +1,74 @@
+.game-player-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000; /* Theater mode should always be pitch black */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.game-player-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  height: 60px;
+}
+
+.game-player-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.toolbar-btn {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem;
+}
+
+.toolbar-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.iframe-wrapper {
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+.game-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.game-player-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
