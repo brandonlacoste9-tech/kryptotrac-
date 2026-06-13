@@ -100,7 +100,7 @@ const Navbar = () => {
                 {isAdmin && <Link to="/admin" style={{ marginLeft: '0.5rem', background: 'var(--primary-color)', color: '#000', fontSize: '0.7rem', padding: '0.1rem 0.4rem', borderRadius: '10px', fontWeight: 'bold', textDecoration: 'none' }}>ADMIN</Link>}
               </span>
               <button className="btn btn-outline" onClick={logout}>{t('nav.logout')}</button>
-              {plan === 'FREE' && <button className="btn btn-primary" onClick={() => window.location.href='http://localhost:5173/pricing'}>{t('nav.gopro')}</button>}
+              {plan === 'FREE' && <button className="btn btn-primary" onClick={() => window.location.href=`${import.meta.env.VITE_ARCADE_URL || 'http://localhost:5173'}/pricing`}>{t('nav.gopro')}</button>}
             </div>
           ) : (
             <>
@@ -149,7 +149,7 @@ const Navbar = () => {
             <>
               <div style={{ padding: '0.5rem 0', color: 'var(--primary-color)' }}>{t('nav.hello')}, {user.user_metadata?.username || user.email}</div>
               <button className="btn btn-outline full-width" onClick={() => { logout(); setMobileMenuOpen(false); }}>{t('nav.logout')}</button>
-              {plan === 'FREE' && <button className="btn btn-primary full-width" onClick={() => { window.location.href='http://localhost:5173/pricing'; }}>{t('nav.gopro')}</button>}
+              {plan === 'FREE' && <button className="btn btn-primary full-width" onClick={() => { window.location.href=`${import.meta.env.VITE_ARCADE_URL || 'http://localhost:5173'}/pricing`; }}>{t('nav.gopro')}</button>}
             </>
           ) : (
             <>
