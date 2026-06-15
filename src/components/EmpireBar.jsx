@@ -43,6 +43,9 @@ const EmpireBar = () => {
       <a href="https://www.floguru.com" style={{ color: '#3498db', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
         <span>🌊</span> FLOGURU
       </a>
+      <a href="https://multiplayer-murex.vercel.app/" style={{ color: '#ffea00', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>🎮</span> EMPIRE ARENA
+      </a>
     </div>
   );
 };
