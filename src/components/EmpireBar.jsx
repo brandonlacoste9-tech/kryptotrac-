@@ -9,7 +9,8 @@ const EmpireBar = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: '30px',
+      flexWrap: 'wrap',
+      gap: '20px',
       fontSize: '12px',
       fontFamily: 'monospace',
       zIndex: 99999,
@@ -18,14 +19,23 @@ const EmpireBar = () => {
       boxSizing: 'border-box'
     }}>
       <span style={{ color: '#666', fontWeight: 'bold', letterSpacing: '2px' }}>THE EMPIRE:</span>
-      <a href="https://hellyeah-games.com" style={{ color: '#00f3ff', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
-        <span>🎮</span> HELL YEAH GAMES
+      <a href="https://cyborggames.com" style={{ color: '#00f3ff', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>🤖</span> CYBORG GAMES
+      </a>
+      <a href="https://hellyeah-games.com" style={{ color: '#ff003c', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>🔥</span> HELL YEAH GAMES
+      </a>
+      <a href="https://gamergurls.com" style={{ color: '#ff00ff', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>💅</span> GAMER GURLS
       </a>
       <a href="https://kryptotrac.com" style={{ color: '#f7931a', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
         <span>📈</span> KRYPTOTRAC
       </a>
       <a href="https://ironclaw.ca" style={{ color: '#00ffaa', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
         <span>⚡</span> IRON CLAW
+      </a>
+      <a href="https://hackermedia.com" style={{ color: '#00ff00', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>📰</span> HACKER MEDIA
       </a>
     </div>
   );
