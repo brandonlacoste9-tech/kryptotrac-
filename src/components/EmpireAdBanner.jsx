@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-// Use standard window.fetch if Supabase client isn't globally available in the host app
-// But we'll try to use the host's supabase client if possible, or fallback to REST API
-// Actually, it's safer to just fetch directly from Supabase REST API to avoid dependency hell across 7 repos
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://eurrfbiavliahmhdxybp.supabase.co';
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1cnJmYmlhdmxpYWhtaGR4eWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMDYyMTUsImV4cCI6MjA5Njc4MjIxNX0.hW7E5Z-02WTBiezSjUzjIBjfMc3OgYexFlvzlgJO3p0';
 
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 const EmpireAdBanner = () => {
   const [ad, setAd] = useState(null);
+  const [isPro, setIsPro] = useState(false);
 
   useEffect(() => {
-    // 1. Fetch a random active ad from the ad_campaigns table
-    const fetchAd = async () => {
+    const checkProAndFetchAd = async () => {
       try {
+        // 1. Check if user is PRO
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session && session.user) {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('plan')
+            .eq('id', session.user.id)
+            .single();
+            
+          if (profile && profile.plan === 'PRO') {
+            setIsPro(true);
+            return; // Exit early, do not fetch ads
+          }
+        }
+
+        // 2. Fetch a random active ad from the ad_campaigns table
         const response = await fetch(`${SUPABASE_URL}/rest/v1/ad_campaigns?active=eq.true&select=*`, {
           headers: {
             'apikey': SUPABASE_ANON_KEY,
@@ -42,10 +58,10 @@ const EmpireAdBanner = () => {
       }
     };
 
-    fetchAd();
+    checkProAndFetchAd();
   }, []);
 
-  if (!ad) return null;
+  if (isPro || !ad) return null;
 
   const handleClick = () => {
     // 3. Track Click
