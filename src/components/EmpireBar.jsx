@@ -37,6 +37,12 @@ const EmpireBar = () => {
       <a href="https://hackermedia.com" style={{ color: '#00ff00', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
         <span>📰</span> HACKER MEDIA
       </a>
+      <a href="https://www.zyeute.com" style={{ color: '#9b59b6', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>🌀</span> ZYEUTE
+      </a>
+      <a href="https://www.floguru.com" style={{ color: '#3498db', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span>🌊</span> FLOGURU
+      </a>
     </div>
   );
 };
